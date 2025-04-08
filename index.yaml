@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  meshery-practice:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-08T15:21:06.0603294+01:00"
+    description: A Helm chart for Kubernetes
+    digest: e40ea7d3ce98e14424f1290a1778e0b96d4675b55f4843272911934b8fc8c967
+    name: meshery-practice
+    type: application
+    urls:
+    - https://onukwilip.github.io/meshery-practice-helm-chart/meshery-practice-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-04-08T15:21:06.0580082+01:00"
