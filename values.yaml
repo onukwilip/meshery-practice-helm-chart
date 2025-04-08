@@ -1,0 +1,13 @@
+name: meshery-practice
+labels:
+  app: meshery-practice
+image: prince2006/meshery-practice:latest
+configMapEnv:
+- name: BACKEND_A
+  value: BACKEND_A
+- name: BACKEND_B
+  value: BACKEND_B
+
+service:
+  externalPort: 3000
+  internalPort: 3000
