@@ -17,6 +17,8 @@ spec:
         obj: pod
         app: {{ .Values.labels.app }}
     spec:
+      imagePullSecrets:
+      - name: {{default "ghcr-secret" .Values.imagePullSecret}}
       containers:
       - name: "{{ .Values.name }}-container"
         image: "{{ .Values.image }}"
