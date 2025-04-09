@@ -3,7 +3,17 @@ entries:
   meshery-practice:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-04-09T19:46:06.0764354+01:00"
+    created: "2025-04-09T19:58:51.8153963+01:00"
+    description: Helm chart for the Meshery practice project
+    digest: 636292c4241cba1f41685ce6b699fa25ddef2893d81d9f4fd086d4df7ea8dedc
+    name: meshery-practice
+    type: application
+    urls:
+    - https://onukwilip.github.io/meshery-practice-helm-chart/meshery-practice-6.0.0.tgz
+    version: 6.0.0
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-09T19:58:51.813395+01:00"
     description: Helm chart for the Meshery practice project
     digest: c9b18e9d0647dab8ac3b784ae2e5c83fd24b75e0f6584ebeed5644ebb7dfe120
     name: meshery-practice
@@ -13,7 +23,7 @@ entries:
     version: 5.0.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-04-09T19:46:06.0744502+01:00"
+    created: "2025-04-09T19:58:51.8123948+01:00"
     description: Helm chart for the Meshery practice project
     digest: b55f9fbc27f20b8da7b485691d3006f1af7a103a6556627bd154712cdbc44a37
     name: meshery-practice
@@ -23,7 +33,7 @@ entries:
     version: 4.0.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-04-09T19:46:06.0734354+01:00"
+    created: "2025-04-09T19:58:51.8113954+01:00"
     description: Helm chart for the Meshery practice project
     digest: 5cad2a4a7a8005e157cf50a3eedb9d602783569907cee8f4ebaec513b20844ac
     name: meshery-practice
@@ -33,7 +43,7 @@ entries:
     version: 3.0.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-04-09T19:46:06.0731419+01:00"
+    created: "2025-04-09T19:58:51.8103945+01:00"
     description: Helm chart for the Meshery practice project
     digest: 7317656b46e08532e17e9f2ea4b9eebb82c3fb5e5224def69d3d44ad91d2d875
     name: meshery-practice
@@ -41,4 +51,4 @@ entries:
     urls:
     - https://onukwilip.github.io/meshery-practice-helm-chart/meshery-practice-1.0.0.tgz
     version: 1.0.0
-generated: "2025-04-09T19:46:06.0709157+01:00"
+generated: "2025-04-09T19:58:51.8103945+01:00"
