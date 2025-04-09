@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: "{{ .Values.name }}-configmap"
+    name: "{{ default "meshery-practice" .Values.configmap.name }}-configmap"
 data:
-    BACKEND_A: "http://backend-a.domain.com"
-    BACKEND_B: "http://backend-b.domain.com"
+    BACKEND_A: {{ default "http://backend-a.domain.com" .Values.configmap.BACKEND_A }}
+    BACKEND_B: {{ default "http://backend-a.domain.com" .Values.configmap.BACKEND_B }}

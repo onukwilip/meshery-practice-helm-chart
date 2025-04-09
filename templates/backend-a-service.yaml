@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: "{{ default "meshery-practice-backendA" .Values.backendA.name }}-service"
+    labels:
+        obj: service
+        app: {{ default "meshery-practice-backendA" .Values.backendA.labels.app }}
+spec:
+    selector:
+        obj: pod
+        app: {{ default "meshery-practice-backendA" .Values.backendA.labels.app }}
+    ports:
+    - port: {{ default 5000 .Values.backendA.service.externalPort }}
+      targetPort: {{ default 5000 .Values.backendA.service.internalPort | int }}
+      protocol: "TCP"
+    type: {{ default "ClusterIP" .Values.backendA.service.type }}

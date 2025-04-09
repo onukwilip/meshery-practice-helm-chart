@@ -1,13 +1,58 @@
-name: meshery-practice
-labels:
-  app: meshery-practice
-image: prince2006/meshery-practice:latest
-configMapEnv:
-- name: BACKEND_A
-  value: BACKEND_A
-- name: BACKEND_B
-  value: BACKEND_B
+frontend:
+  name: meshery-practice
+  labels:
+    app: meshery-practice
+  # image: ghcr.io/onukwilip/meshery-practice-frontend:latest
+  # imagePullSecret: ghcr-secret
+  # replicas: 1
+  # configMapEnv:
+  # - name: BACKEND_A
+  #   configMapName: meshery-practice-configmap
+  #   value: BACKEND_A
+  # - name: BACKEND_B
+  #   configMapName: meshery-practice-configmap
+  #   value: BACKEND_B
+  service:
+    externalPort: 3000
+    internalPort: 3000
 
-service:
-  externalPort: 3000
-  internalPort: 3000
+backendA:
+  name: meshery-practice
+  labels:
+    app: meshery-practice
+  # image: ghcr.io/onukwilip/meshery-practice-backend-a:latest
+  # imagePullSecret: ghcr-secret
+  # replicas: 1
+  # configMapEnv:
+  # - name: BACKEND_A
+  #   configMapName: meshery-practice-configmap
+  #   value: BACKEND_A
+  # - name: BACKEND_B
+  #   configMapName: meshery-practice-configmap
+  #   value: BACKEND_B
+  service:
+    externalPort: 5000
+    internalPort: 5000
+
+backendB:
+  name: meshery-practice
+  labels:
+    app: meshery-practice
+  # image: ghcr.io/onukwilip/meshery-practice-backend-b:latest
+  # imagePullSecret: ghcr-secret
+  # replicas: 1
+  # configMapEnv:
+  # - name: BACKEND_A
+  #   configMapName: meshery-practice-configmap
+  #   value: BACKEND_A
+  # - name: BACKEND_B
+  #   configMapName: meshery-practice-configmap
+  #   value: BACKEND_B
+  service:
+    externalPort: 6000
+    internalPort: 6000
+
+configmap:
+  name: meshery-practice
+  # BACKEND_A: http://backend-a.domain.com
+  # BACKEND_B: http://backend-b.domain.com

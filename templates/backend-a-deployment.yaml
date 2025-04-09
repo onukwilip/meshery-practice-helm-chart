@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ default "meshery-practice-backendA" .Values.backendA.name }}-deployment"
+  labels:
+    obj: deployment
+    app: {{ default "meshery-practice-backendA" .Values.backendA.labels.app }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ default "meshery-practice-backendA" .Values.backendA.labels.app }}
+  replicas: {{ default 1 .Values.backendA.replicas }}
+  template:
+    metadata:
+      labels:
+        obj: pod
+        app: {{ default "meshery-practice-backendA" .Values.backendA.labels.app }}
+    spec:
+      imagePullSecrets:
+      - name: {{ default "ghcr-secret" .Values.backendA.imagePullSecret }}
+      containers:
+      - name: "{{ default "meshery-practice-backendA" .Values.backendA.name }}-container"
+        image: "{{ default "ghcr.io/onukwilip/meshery-practice-backend-a:latest" .Values.backendA.image }}"
+        imagePullPolicy: IfNotPresent
+        env:
+            {{- range .Values.backendA.configMapEnv }}
+            - name: {{ .name }}
+              valueFrom:
+                configMapKeyRef:
+                    name: {{ default "meshery-practice-configmap" .configMapName }}
+                    key: {{ .value }}
+            {{- end }}
+
+            {{- range .Values.backendA.env }}
+            - name: {{ .name }}
+              value: {{ .value }}
+            {{- end }}
+        livenessProbe:
+          httpGet:
+            path: {{ default "/" .Values.backendA.healthcheckPath }}
+            port: {{ default 5000 .Values.backendA.service.internalPort | int }}

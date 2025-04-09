@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ default "meshery-practice-frontend" .Values.frontend.name }}-deployment"
+  labels:
+    obj: deployment
+    app: {{ default "meshery-practice-frontend" .Values.frontend.labels.app}}
+spec:
+  selector:
+    matchLabels:
+      app: {{ default "meshery-practice-frontend" .Values.frontend.labels.app}}
+  replicas: {{ default 1 .Values.frontend.replicas }}
+  template:
+    metadata:
+      labels:
+        obj: pod
+        app: {{ default "meshery-practice-frontend" .Values.frontend.labels.app}}
+    spec:
+      imagePullSecrets:
+      - name: {{default "ghcr-secret" .Values.frontend.imagePullSecret}}
+      containers:
+      - name: "{{ default "meshery-practice-frontend" .Values.frontend.name }}-container"
+        image: "{{ default "ghcr.io/onukwilip/meshery-practice-frontend:latest" .Values.frontend.image }}"
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: BACKEND_A
+            valueFrom:
+              configMapKeyRef:
+                name: "meshery-practice-configmap"
+                key: BACKEND_A
+          - name: BACKEND_B
+            valueFrom:
+              configMapKeyRef:
+                name: "meshery-practice-configmap"
+                key: BACKEND_B
+                
+          {{- range .Values.frontend.configMapEnv }}
+          - name: {{ .name }}
+            valueFrom:
+              configMapKeyRef:
+                name: {{ default "meshery-practice-configmap" .configMapName }}
+                key: {{ .value }}
+          {{- end }}
+
+          {{- range .Values.frontend.env }}
+          - name: {{ .name }}
+            value: {{ .value }}
+          {{- end }}
+        livenessProbe:
+          httpGet:
+            path: {{ default "/" .Values.frontend.healthcheckPath}}
+            port: {{ default 3000 .Values.frontend.service.internalPort | int }}
