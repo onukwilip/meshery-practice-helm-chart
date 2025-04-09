@@ -3,12 +3,12 @@ entries:
   meshery-practice:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-04-09T17:07:00.8064918+01:00"
+    created: "2025-04-09T17:10:16.5216566+01:00"
     description: Helm chart for the Meshery practice project
-    digest: b4dceb053d7ff71b7da0b3855c64f5e8381cfadc499ab83ccf363d6c0f1a352d
+    digest: 7317656b46e08532e17e9f2ea4b9eebb82c3fb5e5224def69d3d44ad91d2d875
     name: meshery-practice
     type: application
     urls:
     - https://onukwilip.github.io/meshery-practice-helm-chart/meshery-practice-1.0.0.tgz
     version: 1.0.0
-generated: "2025-04-09T17:07:00.8054911+01:00"
+generated: "2025-04-09T17:10:16.5206569+01:00"
