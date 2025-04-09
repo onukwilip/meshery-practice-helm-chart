@@ -5,6 +5,8 @@ metadata:
     labels:
         obj: service
         app: {{ default "meshery-practice-frontend" .Values.frontend.labels.app}}
+    annotations:
+        service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
 spec:
     selector:
         obj: pod
