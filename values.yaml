@@ -19,7 +19,7 @@ frontend:
 backendA:
   name: meshery-practice-backend-a
   labels:
-    app: meshery-practice-backend-b
+    app: meshery-practice-backend-a
   # image: ghcr.io/onukwilip/meshery-practice-backend-a:latest
   # imagePullSecret: ghcr-secret
   # replicas: 1
