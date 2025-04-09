@@ -1,5 +1,4 @@
 apiVersion: app/v1
-kind: apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: "{{ .Values.name }}-deployment"
@@ -28,7 +27,7 @@ spec:
             - name: {{ .name }}
               valueFrom:
                 configMapKeyRef:
-                    name: {{ default (printf "%s-configmap" .Values.name) .configMapName }}
+                    name: {{ default "meshery-practice-configmap" .configMapName }}
                     key: {{ .value }}
             {{- end }}
 
