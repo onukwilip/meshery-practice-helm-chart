@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ default "meshery-practice-backendB" .Values.backendB.name }}-deployment"
+  name: "{{ default "meshery-practice-backend-b" .Values.backendB.name }}-deployment"
   labels:
     obj: deployment
-    app: {{ default "meshery-practice-backendB" .Values.backendB.labels.app }}
+    app: {{ default "meshery-practice-backend-b" .Values.backendB.labels.app }}
 spec:
   selector:
     matchLabels:
-      app: {{ default "meshery-practice-backendB" .Values.backendB.labels.app }}
+      app: {{ default "meshery-practice-backend-b" .Values.backendB.labels.app }}
   replicas: {{ default 1 .Values.backendB.replicas }}
   template:
     metadata:
       labels:
         obj: pod
-        app: {{ default "meshery-practice-backendB" .Values.backendB.labels.app }}
+        app: {{ default "meshery-practice-backend-b" .Values.backendB.labels.app }}
     spec:
       imagePullSecrets:
       - name: {{default "ghcr-secret" .Values.backendB.imagePullSecret}}
       containers:
-      - name: "{{ default "meshery-practice-backendB" .Values.backendB.name }}-container"
+      - name: "{{ default "meshery-practice-backend-b" .Values.backendB.name }}-container"
         image: "{{ default "ghcr.io/onukwilip/meshery-practice-backend-b:latest" .Values.backendB.image }}"
         imagePullPolicy: IfNotPresent
         env:

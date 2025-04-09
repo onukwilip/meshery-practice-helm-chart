@@ -17,9 +17,9 @@ frontend:
     internalPort: 3000
 
 backendA:
-  name: meshery-practice-backendA
+  name: meshery-practice-backend-a
   labels:
-    app: meshery-practice-backendA
+    app: meshery-practice-backend-b
   # image: ghcr.io/onukwilip/meshery-practice-backend-a:latest
   # imagePullSecret: ghcr-secret
   # replicas: 1
@@ -35,9 +35,9 @@ backendA:
     internalPort: 5000
 
 backendB:
-  name: meshery-practice-backendB
+  name: meshery-practice-backend-b
   labels:
-    app: meshery-practice-backendB
+    app: meshery-practice-backend-b
   # image: ghcr.io/onukwilip/meshery-practice-backend-b:latest
   # imagePullSecret: ghcr-secret
   # replicas: 1
